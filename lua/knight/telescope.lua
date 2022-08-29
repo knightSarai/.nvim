@@ -9,7 +9,9 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-
+    cache_picker = {
+      num_pickers = 10,
+    },
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -101,4 +103,10 @@ telescope.setup {
     -- }
     -- please take a look at the readme of the extension you want to configure
   },
+  builtin = {
+    find_files = {
+      no_ignore = true,
+    }
+
+  }
 }
