@@ -9,6 +9,10 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
+    cache_picker = {
+      num_pickers = 20,
+
+    },
 
     prompt_prefix = " ",
     selection_caret = " ",
