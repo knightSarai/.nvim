@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Auto-save.nvim"] = {
+    loaded = true,
+    path = "/home/knight/.local/share/nvim/site/pack/packer/start/Auto-save.nvim",
+    url = "https://github.com/Pocco81/Auto-save.nvim"
+  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/home/knight/.local/share/nvim/site/pack/packer/start/Comment.nvim",
