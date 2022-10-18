@@ -54,7 +54,7 @@ cmp.setup {
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-	["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -67,12 +67,8 @@ cmp.setup {
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if copilot_keys ~= '' and type(copilot_keys) == 'string' then
-        vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-      elseif cmp.visible() then
+      if cmp.visible() then
         cmp.select_next_item()
-      elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
-        vim.api.nvim_feedkeys(copilot_keys, 'i', true)
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
