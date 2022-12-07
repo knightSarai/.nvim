@@ -4,9 +4,9 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap leader key
--- keymap("", "key", "<Nop>", opts)
--- vim.g.mapleader = "key"
--- vim.g.maplocalleader = "key"
+ keymap("", "<SPACE>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -18,7 +18,7 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<Space>", "<C-w>w", opts)
+--[[ keymap("n", "<Space>", "<C-w>w", opts) ]]
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)

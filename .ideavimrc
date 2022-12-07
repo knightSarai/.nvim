@@ -1,0 +1,61 @@
+Plug 'preservim/nerdtree'
+
+let mapleader=" "
+
+imap jk <Esc>
+vmap p "_dP
+
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+"Allow System Clipboard
+set clipboard+=unnamed
+set clipboard+=ideaput
+set relativenumber
+set number
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Terminal
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+
+"Window Navigation
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+
+"Git
+nnoremap <leader>c :action CheckinProject<CR>
+nnoremap <leader>p :action Vcs.Push<CR>
+
+"NERDTree
+map <leader>e :NERDTree<CR>
+
+"Searching And code Navigation
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>fgg :action FindInPath<CR>
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <c-s> :action FileStructurePopup<CR>
+nnoremap <c-o> :action GotoSymbol<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [d :action GotoPreviousError<CR>
+"Editing Cod
+nnoremap gcc :action CommentByLineComment<CR>
+vnoremap < <gv
+vnoremap > >gv
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
