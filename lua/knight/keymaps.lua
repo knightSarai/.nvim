@@ -3,8 +3,8 @@ local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
+keymap("", "<SPACE>", "<Nop>", opts)
 --Remap leader key
- keymap("", "<SPACE>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -71,4 +71,16 @@ keymap("n", "<leader>fgg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fgd", "<cmd>lua require'telescope.builtin'.live_grep({cwd=require('telescope.utils').buffer_dir()})<cr>", opts)
 keymap("n", "<leader>fs", "<cmd>Telescope resume<cr>", opts)
 keymap("n", "<leader>fa", "<cmd>Telescope pickers<cr>", opts)
-keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts)
+--[[ keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts) ]]
+--
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+keymap("n", "J", "mzJ`z", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
