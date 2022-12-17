@@ -46,9 +46,6 @@ nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>a :action GotoAction<CR>
 nnoremap <leader>u :action FindUsages<CR>
 nnoremap <c-s> :action FileStructurePopup<CR>
-"nnoremap gc :action GotoClass<CR>
-"nnoremap gi :action GotoImplementation<CR>
-"nnoremap gd :action GotToDeclaration<CR>
 nnoremap ]d :action GotoNextError<CR>
 nnoremap [d :action GotoPreviousError<CR>
 nnoremap <s-k> :action QuickJavaDoc<CR>
@@ -62,15 +59,17 @@ vnoremap > >gv
 "Copilot
 nnoremap <c-a> :action copilot.applyInlays<CR>
 
-vmap J :m '>+1<CR>gv=gv
-vmap K :m '<-2<CR>gv=gv
-nmap J mzJ`z
+nmap K :m .-2<CR>==
+nmap J :m .+1<CR>==
+
+vmap K :action MoveStatementUp<CR>
+vmap J :action MoveStatementDown<CR>
+
+
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
 nmap n nzzzv
 nmap N Nzzzv
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><CR>
-
-
+nnoremap <leader>s viw:action Replace<CR>
 
 " Find more examples here: https://jb.gg/share-ideavimrc
