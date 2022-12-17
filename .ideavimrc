@@ -55,10 +55,6 @@ nnoremap <leader>k :action QuickImplementations<CR>
 nnoremap gcc :action CommentByLineComment<CR>
 vnoremap < <gv
 vnoremap > >gv
-
-"Copilot
-nnoremap <c-a> :action copilot.applyInlays<CR>
-
 nmap K :m .-2<CR>==
 nmap J :m .+1<CR>==
 
@@ -71,5 +67,6 @@ nmap <C-u> <C-u>zz
 nmap n nzzzv
 nmap N Nzzzv
 nnoremap <leader>s viw:action Replace<CR>
+
 
 " Find more examples here: https://jb.gg/share-ideavimrc
