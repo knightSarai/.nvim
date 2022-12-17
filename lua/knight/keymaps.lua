@@ -18,7 +18,6 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
---[[ keymap("n", "<Space>", "<C-w>w", opts) ]]
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -37,7 +36,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
--- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -45,9 +43,6 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
@@ -57,13 +52,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
 -- Telescope --
 keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>fd", "<cmd>lua require'telescope.builtin'.find_files({cwd=require('telescope.utils').buffer_dir()})<cr>", opts)
@@ -71,6 +59,21 @@ keymap("n", "<leader>fgg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>fgd", "<cmd>lua require'telescope.builtin'.live_grep({cwd=require('telescope.utils').buffer_dir()})<cr>", opts)
 keymap("n", "<leader>fs", "<cmd>Telescope resume<cr>", opts)
 keymap("n", "<leader>fa", "<cmd>Telescope pickers<cr>", opts)
+
+vim.keymap.set('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>/', function()
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })
+
+local builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ps', function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
 --[[ keymap("n", "<leader>fm", "<cmd>Telescope media_files<cr>", opts) ]]
 --
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)

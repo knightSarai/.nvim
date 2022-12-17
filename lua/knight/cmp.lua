@@ -1,8 +1,5 @@
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-    return
-end
-
+local cmp = require('cmp')
+local luasnip = require('luasnip')
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
@@ -14,7 +11,6 @@ lsp.ensure_installed({
     'rust_analyzer',
 })
 
-local cmp = require('cmp')
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-k>'] = cmp.mapping.select_prev_item(),
