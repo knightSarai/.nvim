@@ -43,6 +43,7 @@ map <leader>e :NERDTree<CR>
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 nnoremap <leader>fgg :action FindInPath<CR>
 nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fr :action RecentFiles<CR>
 nnoremap <leader>a :action GotoAction<CR>
 nnoremap <leader>u :action FindUsages<CR>
 nnoremap <c-s> :action FileStructurePopup<CR>
@@ -53,10 +54,9 @@ nnoremap <leader>k :action QuickImplementations<CR>
 
 "Editing Cod
 nnoremap gcc :action CommentByLineComment<CR>
+vnoremap gcc :action CommentByBlockComment<CR>
 vnoremap < <gv
 vnoremap > >gv
-nmap K :m .-2<CR>==
-nmap J :m .+1<CR>==
 
 vmap K :action MoveStatementUp<CR>
 vmap J :action MoveStatementDown<CR>
