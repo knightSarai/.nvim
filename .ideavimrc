@@ -9,11 +9,9 @@ set scrolloff=5
 
 " Do incremental searching.
 set incsearch
-"Allow System Clipboard
-set clipboard+=unnamed
-set clipboard+=ideaput
 set relativenumber
 set number
+set clipboard=unnamedplus
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -33,11 +31,25 @@ nnoremap <s-TAB> :action PreviousTab<CR>
 nnoremap <Leader>qa :action CloseAllEditors<CR>
 
 "Git
-nnoremap <leader>c :action CheckinProject<CR>
-nnoremap <leader>p :action Vcs.Push<CR>
+nnoremap <leader>git :action ActivateVersionControlToolWindow<CR>
+nnoremap <leader>gc :action CheckinProject<CR>
+nnoremap <leader>gp :action Vcs.Push<CR>
+nnoremap <leader>ga :action Annotate<CR>
+nnoremap <leader>gb :action Git.Branches<CR>
+nnoremap <leader>ges :action EditSource<CR>
+nnoremap <leader>gr :action Git.ResolveConflicts<CR>
+nnoremap <leader>grc :action Git.Rebase.Continue<CR>
+nnoremap <leader>gdb :action Git.CompareWithBranch<CR>
+nnoremap <leader>gdr :action Compare.Selected<CR>
+nnoremap <leader>gdf :action Diff.ShowDiff<CR>
+
+"Copilot
+nnoremap <leader>cc :action ActivateGitHubCopilotChatToolWindow<CR>
+
 
 "NERDTree
 map <leader>e :NERDTree<CR>
+let NERDTreeQuitOnOpen=1
 
 "Searching And code Navigation
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
@@ -54,7 +66,8 @@ nnoremap <leader>k :action QuickImplementations<CR>
 
 "Editing Cod
 nnoremap gcc :action CommentByLineComment<CR>
-vnoremap gcc :action CommentByBlockComment<CR>
+vnoremap gcc :action CommentByLineComment<CR>
+vnoremap gcb :action CommentByBlockComment<CR>
 vnoremap < <gv
 vnoremap > >gv
 
@@ -68,5 +81,7 @@ nmap n nzzzv
 nmap N Nzzzv
 nnoremap <leader>s viw:action Replace<CR>
 
+
+nnoremap q :action HideActiveWindow<CR>
 
 " Find more examples here: https://jb.gg/share-ideavimrc

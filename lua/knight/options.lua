@@ -12,7 +12,7 @@ local options = {
     showmode = false,                            -- we don't need to see things like -- INSERT -- anymore
     showtabline = 4,                             -- always show tabs
     smartcase = true,                            -- smart case
-    smartindent = true,                          -- make indenting smarter again
+    smartindent = false,                          -- make indenting smarter again
     splitbelow = true,                           -- force all horizontal splits to go below current window
     splitright = true,                           -- force all vertical splits to go to the right of current window
     swapfile = false,                            -- creates a swapfile
@@ -30,11 +30,10 @@ local options = {
     numberwidth = 4,                             -- set number column width to 2 {default 4}
     signcolumn = "yes",                          -- always show the sign column, otherwise it would shift the text each time
     wrap = false,                                -- display lines as one long line
-    scrolloff = 8,                               
+    scrolloff = 8,
     sidescrolloff = 8,
     guifont = "monospace:h17",                   -- the font used in graphical neovim applications
-    modifiable = true,                          
-    
+    modifiable = true
 }
 
 vim.opt.shortmess:append "c"
