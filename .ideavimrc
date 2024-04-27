@@ -46,6 +46,9 @@ nnoremap <leader>gdf :action Diff.ShowDiff<CR>
 "Copilot
 nnoremap <leader>cc :action ActivateGitHubCopilotChatToolWindow<CR>
 
+" Run test
+nnoremap <leader>rt :action RunClass<CR>
+nnoremap <leader>rtf :action RerunFailedTests<CR>
 
 "NERDTree
 map <leader>e :NERDTree<CR>
